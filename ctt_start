@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# start of ctt with omniORB 4.1.4
+
+LIB_DIR=lib
+
+#localhost config
+NAMES_IP1=127.0.0.1
+NAMES_IP2=127.0.0.2
+OBJ_IP1=127.0.0.1
+OBJ_IP2=127.0.0.2
+
+#TMD018 config
+#NAMES_IP1=192.168.18.200
+#NAMES_IP2=192.168.118.200
+#OBJ_IP1=192.168.18.200
+#OBJ_IP2=192.168.118.200
+
+#home config
+#NAMES_IP1=192.168.1.114
+#NAMES_IP2=192.168.1.22
+#OBJ_IP1=192.168.1.114
+#OBJ_IP2=192.168.1.22
+
+export LD_LIBRARY_PATH=${LIB_DIR}
+
+./ctt $@  -ORBInitRef "NameService=corbaname::${NAMES_IP1},:${NAMES_IP2}" -ORBendPoint "giop:tcp:${OBJ_IP1}:" -ORBendPoint "giop:tcp:${OBJ_IP2}:" -ORBverifyObjectExistsAndType 0 -ORBresetTimeOutOnRetries 1 -ORBclientCallTimeOutPeriod 3000  -ORBclientConnectTimeOutPeriod 1500
+
+# -ORBtraceLevel 25
+
+
+
+
+

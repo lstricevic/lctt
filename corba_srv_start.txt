@@ -1,0 +1,15 @@
+omniNames -start -ignoreport -logdir ./tmp -ORBtraceLevel 1 -ORBendPoint giop:tcp:192.168.0.189:2809 -ORBendPoint giop:tcp:192.168.1.189:2809
+
+omni names na 189(ova masina):
+CORBAServerSample -ORBInitRef NameService=corbaname::192.168.0.189,:192.168.1.189 -ORBendPoint giop:tcp:192.168.0.189: -ORBendPoint giop:tcp:192.168.1.189: -ORBverifyObjectExistsAndType 0 -ORBtraceLevel 25 -ORBresetTimeOutOnRetries 1
+CORBAClientSample -ORBInitRef NameService=corbaname::192.168.0.189,:192.168.1.189 -ORBendPoint giop:tcp:192.168.0.189: -ORBendPoint giop:tcp:192.168.1.189: -ORBverifyObjectExistsAndType 0 -ORBtraceLevel 25 -ORBresetTimeOutOnRetries 1
+
+
+omni names na 188:
+CORBAServerSample -ORBInitRef NameService=corbaname::192.168.0.188,:192.168.1.188 -ORBendPoint giop:tcp:192.168.0.189: -ORBendPoint giop:tcp:192.168.1.189: -ORBverifyObjectExistsAndType 0 -ORBtraceLevel 25 -ORBresetTimeOutOnRetries 1
+CORBAClientSample -ORBInitRef NameService=corbaname::192.168.0.188,:192.168.1.188 -ORBendPoint giop:tcp:192.168.0.189: -ORBendPoint giop:tcp:192.168.1.189: -ORBverifyObjectExistsAndType 0 -ORBtraceLevel 25 -ORBresetTimeOutOnRetries 1
+
+
+idl:
+omniidl -bcxx -I. -Wbkeep_inc_path -Wba -Wbh=.h -Wbs=.cpp -Wbd=DynSK.cpp -nf $(InputName).idl
+

@@ -1,0 +1,17 @@
+
+v0.0.3 improvements
+
+- implement (connection and transient) exception handling
+	- for client
+- implement connection timeout seting (option -T)
+	- for client
+
+- implement verbose information display (option -v)
+	- display parameters
+	- display contacting server
+- implement version display (option -V)
+
+- display test number before elapsed time
+- display average time at the end of testing
+
+

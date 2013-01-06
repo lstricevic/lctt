@@ -1,0 +1,33 @@
+# Corba Test Tool Makefile for Windows v0.1
+#
+# Commands start with TAB not spaces
+#
+
+CC=cl
+LINK=link
+
+COMP_OPT=/c /O2 /Ob1 /I "D:\omniORB-4.1.1_klot\include" /D "_CRT_SECURE_NO_WARNINGS" /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "__WIN32__" /D "__x86__" /D "_WIN32_WINNT=0x0400" /D "__NT__" /D "__OSVERSION__=4" /D "_VC80_UPGRADE=0x0600" /D "_MBCS" /GF /FD /EHsc /MD /Gy
+
+LINK_OPT=/LIBPATH:"D:\omniORB-4.1.1_klot\lib\x86_win32"
+LIBS=omniORB411_rt.lib omniDynamic411_rt.lib omnithread33_rt.lib
+
+
+OBJS=ctt.o echoSK.o fgetopt.o
+
+ctt.exe: $(OBJS)
+	$(LINK) $(LINK_OPT) $(LIBS) $^ 
+
+ctt.o: ctt.cc timer.cc options.cc
+	$(CC) $(COMP_OPT) /Fo$@ $<
+             
+echoSK.o: echoSK.cc
+	$(CC) $(COMP_OPT) /Fo$@ $< 
+
+fgetopt.o: fgetopt.c 
+	$(CC) $(COMP_OPT) /Fo$@ $<
+
+.PHONY: clean
+
+clean:
+	del ctt.exe $(OBJS)
+

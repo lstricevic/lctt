@@ -1,0 +1,22 @@
+#!/bin/bash
+
+
+#NAMES_IP1=147.91.174.232
+#NAMES_IP2=192.168.18.74
+#OBJ_IP1=147.91.174.232
+#OBJ_IP2=192.168.18.74
+
+NAMES_IP1=192.168.1.114
+NAMES_IP2=192.168.1.22
+OBJ_IP1=192.168.1.114
+OBJ_IP2=192.168.1.22
+
+./ctt -s -ORBInitRef "NameService=corbaname::${NAMES_IP1},:${NAMES_IP2}" -ORBendPoint "giop:tcp:${OBJ_IP1}:" -ORBendPoint "giop:tcp:${OBJ_IP2}:" -ORBverifyObjectExistsAndType 0 -ORBtraceLevel 10
+
+
+# -ORBresetTimeOutOnRetries 1
+
+
+
+
+
