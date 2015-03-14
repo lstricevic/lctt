@@ -1,0 +1,1 @@
+lctt creates CORBA client-server connection and measures the time needed to transfer specified amount of data (all zeros). Project is multi platform and requires omniORB CORBA implementation for specified environment.
